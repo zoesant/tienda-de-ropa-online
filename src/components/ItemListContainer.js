@@ -10,7 +10,8 @@ function Header(props) {
     );
     }
 
-export default Header;
+    export default Header;
+
 
 // export const hello = (props) =>  <h2>{props.title}</h2> ;
 // export default () => <hello title="HELLO"/>;

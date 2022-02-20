@@ -4,6 +4,7 @@ import Navbar from './components/navBar';
 // import hello from './components/ItemListContainer';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './components/ItemListContainer';
+import Contador from './components/ItemCount';
 
 
 
@@ -17,6 +18,8 @@ function App() {
       <div>
       <Header title='Hellooooooooooooo' />
       </div>
+      
+      <Contador/>
     </div>
   );
 }
