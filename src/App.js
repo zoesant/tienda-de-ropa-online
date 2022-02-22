@@ -19,7 +19,7 @@ function App() {
       <Header title='Hellooooooooooooo' />
       </div>
       
-      <Contador/>
+      <Contador stock={4} initial= {0}/>
     </div>
   );
 }

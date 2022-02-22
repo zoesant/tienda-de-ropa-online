@@ -2,10 +2,10 @@ import { useState } from "react";
 
 
 
-function Contador (props) {
+function Contador ({stock, initial}) {
 
-    const [cantidad, setCantidad] = useState(1);
-    const [stock, setStock] = useState(4);
+    const [cantidad, setCantidad] = useState(initial);
+    
 
 
     const addProduct = () => {
@@ -16,6 +16,8 @@ function Contador (props) {
         if(cantidad < stock){
             setCantidad(cantidad + 1);
         }
+        
+
     }
     const restar = () => {
         if(cantidad !== 0){
