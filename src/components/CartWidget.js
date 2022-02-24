@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function CartWidget() {
     return(
         <div>
-            <img class="cart" src={require('../Assets/carro.png')} />
+            <img className="cart" src={require('../Assets/carro.png')} />
 
 
         </div>

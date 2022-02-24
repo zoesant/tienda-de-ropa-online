@@ -5,6 +5,8 @@ import Navbar from './components/navBar';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './components/ItemListContainer';
 import Contador from './components/ItemCount';
+// import ItemList from './components/ItemList';
+import ItemList from './components/ItemListContainer';
 
 
 
