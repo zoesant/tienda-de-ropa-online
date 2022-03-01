@@ -3,10 +3,10 @@ import './App.css';
 import Navbar from './components/navBar';
 // import hello from './components/ItemListContainer';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './components/ItemListContainer';
-import Contador from './components/ItemCount';
+import ItemListContainer from './components/itemList/ItemListContainer';
+import ItemCount from './components/itemCount/ItemCount';
 // import ItemList from './components/ItemList';
-import ItemList from './components/ItemListContainer';
+import ItemDetailContainer from './components/itemDetail/ItemDetailContainer';
 
 
 
@@ -16,12 +16,12 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      
       <div>
-      <Header title='Hellooooooooooooo' />
+        <ItemListContainer title='Catalogo' />
       </div>
-      
-      <Contador stock={4} initial= {0}/>
+      <div>
+        <ItemDetailContainer title='Detalle' />
+      </div>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import { useState } from "react";
+import './ItemCount.css'
 
 
 
-function Contador ({stock, initial}) {
+function ItemCount ({stock, initial}) {
 
     const [cantidad, setCantidad] = useState(initial);
     
@@ -27,17 +28,16 @@ function Contador ({stock, initial}) {
   
 // cantidad = 3
     return (
-    <div>
-    <button onClick={restar}> - </button>
-    <div>
-    <div>
-        <input type='number' value={cantidad}>
-        </input>
-        <button onClick={addProduct}> add </button>
+    <div className="cont-item-count">
 
-    </div>
-    <button onClick={sumar}> + </button>
-    </div>
+        <div className="item-count" >
+            <button className="btn-cant" onClick={restar}> - </button>
+            <span>{cantidad}</span>
+            <button className="btn-cant" onClick={sumar}> + </button>
+        </div>
+
+        <button className="btn-add" onClick={addProduct}> Agregar </button>
+
     </div>
 
     
@@ -49,7 +49,7 @@ function Contador ({stock, initial}) {
     
 
 
-export default Contador;
+export default ItemCount;
 
 
 

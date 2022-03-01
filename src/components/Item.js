@@ -5,9 +5,9 @@ import './NavBar.css';
 function Item({item}) {
     return (
     <li key={item.id} >
+        <img className="img-item" src={item.pictureUrl} />
         <div>{item.title}</div>
         <div>{item.price}</div>
-        <img className="img-item" src={item.pictureUrl} />
     </li>
     );
 }

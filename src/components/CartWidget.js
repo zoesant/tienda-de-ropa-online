@@ -6,8 +6,6 @@ function CartWidget() {
     return(
         <div>
             <img className="cart" src={require('../Assets/carro.png')} />
-
-
         </div>
     )
 }
