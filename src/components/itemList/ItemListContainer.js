@@ -1,53 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../NavBar.css';
 import './ItemList.css'
+import {itemsDB} from '../../data/ItemsDB'
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
+import { Spinner } from 'reactstrap';
 
-const items = [
-    {   id: 1, 
-        title:'Remera-Adidas',
-        description:'UNA REMERA DE LAS 3 TIRAS EN ALGODÓN INSPIRADA EN LA VERSIÓN ORIGINAL DE LOS 70', 
-        price: '$200', 
-        pictureUrl: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/16fefe6dbb3e4b39a008a83500d507a5_9366/Remera_3_Tiras_Blanco_CW1203_21_model.jpg'
-    },
-        {id: 2, 
-        title:'Remera-Nike', 
-        description:'Remera Nike Nsw Hybrid Ss', 
-        price: '$300', 
-        pictureUrl:'https://ferreira.vteximg.com.br/arquivos/ids/377225-588-588/ni_AJ9996010.jpg?v=637560091045270000' }
-]
+
 
 function ItemListContainer(props) {
+
+    const[items,setItems] = useState([]);
+    const {categoryId} = useParams();
+
+    const obtenerItemsPorCategoria = (id) =>{
+        return new Promise ((resolve, reject)=>{
+            let itemsObtendos = itemsDB;
+            setItems([]);
+            if(id){
+                itemsObtendos = itemsObtendos.filter((elemento)=>elemento.categoryId===id) 
+            }
+            setTimeout(()=>{
+                resolve(itemsObtendos);
+            },2000)
+
+        })
+    }
+
+    useEffect(async () => {
+         setItems(await obtenerItemsPorCategoria(categoryId)); 
+    },[categoryId]);
+
     return (
-    <div>
-        <h1> {props.title} </h1>
-        <div>
-            <ItemList
-                items={items}/>
-        </div>
-    </div>
+    <>
+
+        {
+            items.length?
+            <>
+                <h1> {props.title} </h1>
+                <div>
+                    <ItemList
+                        items={items}/>
+                </div> 
+            </>
+            :
+            <div className='cont-spinner'>
+                <Spinner className='spinner' color='primary'/> 
+            </div>
+        }   
+    </>
     
     );
 }
 
 export default ItemListContainer;
 
-
-// export const hello = (props) =>  <h2>{props.title}</h2> ;
-// export default () => <hello title="HELLO"/>;
-
-// function ItemListContainer() {
-//     return(
-//         export const hello = (props) =
-//         > 
-        
-        
-//     )
-// }
-
-
-
-
-
-// export default ItemListContainer;
+//   read:
+//   {
+//     values:
+//     [
+//       magnitude: number, // Ver tabla de magnitudes al final del archivo
+//       value: number, // Valor de la magnitud
+//       mantissa: number, //Entero indicando los dígitos del valor
+//       exponent:  number, //Entero indicando la cantidad de dígitos decimales en la mantisa
+//     ]
+//   }

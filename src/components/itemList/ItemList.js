@@ -4,11 +4,11 @@ import Item from '../Item';
 function ItemList({items}) {
     return (
     <div>
-        <ul>
+        <ul className='lista'>
             {
             items.map( item => (
                     <Item key={item.id}
-                        item={item}
+                          item={item}
                     />
                 )
             )

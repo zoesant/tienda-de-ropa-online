@@ -1,28 +1,21 @@
-// import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/navBar';
-// import hello from './components/ItemListContainer';
+import Navbar from './components/navBar/navBar';
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemListContainer from './components/itemList/ItemListContainer';
-import ItemCount from './components/itemCount/ItemCount';
-// import ItemList from './components/ItemList';
 import ItemDetailContainer from './components/itemDetail/ItemDetailContainer';
-
-
+import {BrowserRouter, MemoryRouter, Route, Routes} from 'react-router-dom'
 
 function App() {
 
-
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar/>
-      <div>
-        <ItemListContainer title='Catalogo' />
-      </div>
-      <div>
-        <ItemDetailContainer title='Detalle' />
-      </div>
-    </div>
+      <Routes>
+        <Route exact path='/' element={<ItemListContainer/>}/>
+        <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+        <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -10,7 +10,7 @@ function ItemCount ({stock, initial}) {
 
 
     const addProduct = () => {
-        alert('Usted selecciono ' + cantidad + ' remeras');
+        alert('Usted selecciono ' + cantidad + ' item/s');
     }
 
     const sumar = () => {
