@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from '../itemCount/ItemCount'
 
 export default function ItemDetail({item}) {
+
+  const[habilitaCounter, setHabilitaCounter] = useState(true);
+
+  function handleOnAdd(){
+    setHabilitaCounter(false);
+    
+  }
+
+  function handleCancelar(){
+    setHabilitaCounter(true);
+  }
+
   return (
     <div className='cont-detail'>
 
@@ -11,7 +24,16 @@ export default function ItemDetail({item}) {
         <h2>{item.title}</h2>
         <p>{item.description}</p>
         <p>Precio: {item.price}</p>
-        <ItemCount stock={4} initial= {0}/>
+        {
+          habilitaCounter ?
+            <ItemCount stock={4} initial= {0} onAdd={handleOnAdd}/>
+          :
+            <div>
+              <Link to='/cart'><button>Termina tu compra</button></Link>
+              <button onClick={handleCancelar}>Cancelar Compra</button>
+            </div>
+
+        }
       </div>
     </div>
   )

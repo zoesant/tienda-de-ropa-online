@@ -3,14 +3,16 @@ import './ItemCount.css'
 
 
 
-function ItemCount ({stock, initial}) {
+function ItemCount ({stock, initial,onAdd}) {
 
     const [cantidad, setCantidad] = useState(initial);
     
 
 
-    const addProduct = () => {
-        alert('Usted selecciono ' + cantidad + ' item/s');
+    const addProduct = (e) => {
+        if(cantidad !== 0){
+            onAdd();
+        }
     }
 
     const sumar = () => {
