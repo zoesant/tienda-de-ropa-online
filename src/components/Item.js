@@ -9,7 +9,7 @@ function Item({item}) {
         <h5>{item.title}</h5>
         <p>{item.price}</p>
         <Link to={`/item/${item.id}`}>
-            <button>Ver Mas</button>
+            <button>Ver Detalle</button>
         </Link>
     </li>
     );
