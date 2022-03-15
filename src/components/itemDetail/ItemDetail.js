@@ -8,11 +8,6 @@ export default function ItemDetail({item}) {
 
   function handleOnAdd(){
     setHabilitaCounter(false);
-    
-  }
-
-  function handleCancelar(){
-    setHabilitaCounter(true);
   }
 
   return (
@@ -26,11 +21,10 @@ export default function ItemDetail({item}) {
         <p>Precio: {item.price}</p>
         {
           habilitaCounter ?
-            <ItemCount stock={4} initial= {0} onAdd={handleOnAdd}/>
+            <ItemCount stock={4} initial= {0} onAdd={handleOnAdd} item={item}/>
           :
             <div>
               <Link to='/cart'><button>Termina tu compra</button></Link>
-              <button onClick={handleCancelar}>Cancelar Compra</button>
             </div>
 
         }

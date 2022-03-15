@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 import './ItemCount.css'
 
 
 
-function ItemCount ({stock, initial,onAdd}) {
+function ItemCount ({stock, initial,onAdd,item}) {
 
-    const [cantidad, setCantidad] = useState(initial);
+    const [cantidad, setCantidad] = useState(initial);   
+    const cartContext = useContext(CartContext);
     
-
-
-    const addProduct = (e) => {
+    const addProduct = () => {
         if(cantidad !== 0){
-            onAdd();
+            const seAgregoItem = cartContext.addItem(item,cantidad);
+            if(seAgregoItem){
+                onAdd();
+            }
         }
     }
 
@@ -19,8 +22,6 @@ function ItemCount ({stock, initial,onAdd}) {
         if(cantidad < stock){
             setCantidad(cantidad + 1);
         }
-        
-
     }
     const restar = () => {
         if(cantidad !== 0){
@@ -37,8 +38,7 @@ function ItemCount ({stock, initial,onAdd}) {
             <span>{cantidad}</span>
             <button className="btn-cant" onClick={sumar}> + </button>
         </div>
-
-        <button className="btn-add" onClick={addProduct}> Agregar </button>
+        <button className="btn-add" onClick={addProduct}> Agregar al carrito </button>
 
     </div>
 
