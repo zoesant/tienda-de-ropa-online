@@ -8,7 +8,12 @@ function ItemCount ({stock, initial,onAdd,item}) {
 
     const [cantidad, setCantidad] = useState(initial);   
     const cartContext = useContext(CartContext);
+<<<<<<< HEAD
     
+=======
+ 
+
+>>>>>>> f77593228cffdd4ff5c9e447bbd877c63329edae
     const addProduct = () => {
         if(cantidad !== 0){
             const seAgregoItem = cartContext.addItem(item,cantidad);

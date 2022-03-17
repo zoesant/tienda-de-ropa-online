@@ -5,7 +5,11 @@ export default function CustomCartContext({defaultValue = [], children}) {
 
     const[datosCarrito,setDatosCarrito] = useState(defaultValue);
 
+<<<<<<< HEAD
     function addItem(item, quantity){
+=======
+    function addItem(item, quantity,e){
+>>>>>>> f77593228cffdd4ff5c9e447bbd877c63329edae
         if(!isInCart(item.id)){
             setDatosCarrito(datosCarrito.concat({item: item, quantity: quantity }));
             return true;
